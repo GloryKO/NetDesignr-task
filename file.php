@@ -9,7 +9,7 @@
 
       curl_setopt_array($curl, array(
         // CURLOPT_URL => "https://api.pandascore.co/leagues",
-        CURLOPT_URL =>"https://api.pandascore.co/matches/upcoming?page[size]=5&sort=scheduled_at",
+        CURLOPT_URL =>"https://api.pandascore.co/matches/upcoming?page[size]=4&sort=scheduled_at",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_ENCODING => "",
@@ -41,9 +41,9 @@
   
         ?>
         
-        <div class="w3-row w3-center w3-margin "><?php // get the first two games ?>
-                <div class="w3-col s2 "> <?php echo $jsonObj[0]["name"] ? : "can't find team name";?> </div> 
-                <div class="w3-col s2 "> <?php echo $jsonObj[1]["name"] ? : "can't find team name";?> </div>
+        <div class="w3-row w3-center w3-margin "><?php // get the most upcoming game in the header ?>
+                <div class="w3-col s2 "> <?php echo $jsonObj[0]["name"] ? : "can't find team name" ; ?> </div> <br>
+             
         </div>
 
          <?php  //iterate the array of objects and get the needed information. return the given message if not data is returned.
@@ -53,9 +53,11 @@
         
             <div class="w3-row w3-center w3-margin ">
                 <div class="w3-col s2 "> <?php echo $showObj["name"] ? : "can't find team name";?> </div>
+                <div class="w3-col s2 "> <?php echo $showObj["status"] ? : "can't find game status ";?> </div>
                 <div class="w3-col  s2"> <?php echo date($showObj["begin_at"]? : "Can't find the time for now");?> </div>
-                <div class="w3-col   s2"> <?php echo $showObj["opponents"][1]["opponent"]["image_url"]? : "Cant find image_url";?> </div><br>
-                <div class="w3-col  s2"> <?php echo $showObj["opponents"][0]["opponent"]["image_url"]? : "cant find image_url";?> </div>
+                <img class="w3-col w3-margin s2" style="width:48px;height:48px"src=<?php echo $showObj["opponents"][1]["opponent"]["image_url"]? : "Cant find image_url";?>>
+                <img class="w3-col w3-margin s2" style="width:48px;height:48px;" src = <?php echo $showObj["opponents"][0]["opponent"]["image_url"]? : "cant find image_url";?> >
+                
             </div>
       <?php };?>
 
