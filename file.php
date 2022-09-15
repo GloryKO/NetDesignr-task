@@ -55,9 +55,11 @@
                 <div class="w3-col s2 "> <?php echo $showObj["name"] ? : "can't find team name";?> </div>
                 <div class="w3-col s2 "> <?php echo $showObj["status"] ? : "can't find game status ";?> </div>
                 <div class="w3-col  s2"> <?php echo date($showObj["begin_at"]? : "Can't find the time for now");?> </div>
+                <a class="w3-col  s2" href=<?php echo date($showObj["live"]["url"]? : "Can't find the time for now");?> >Link </a>
                 <img class="w3-col w3-margin s2" style="width:48px;height:48px"src=<?php echo $showObj["opponents"][1]["opponent"]["image_url"]? : "Cant find image_url";?>>
-                <img class="w3-col w3-margin s2" style="width:48px;height:48px;" src = <?php echo $showObj["opponents"][0]["opponent"]["image_url"]? : "cant find image_url";?> >
-                
+                <img class="w3-col w3-margin s2" style="width:48px;height:48px;" src = <?php echo $showObj["opponents"][0]["opponent"]["image_url"]? : "cant find image_url";?> 
+                alt="team-logo"
+                >  
             </div>
       <?php };?>
 
